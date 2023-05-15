@@ -1,21 +1,42 @@
-<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
-<h2>Reseñas</h2>
-<div class="container-m">
-    <div class="row">
-        <div class="col-md-4" *ngFor="let datos of data">
-            <div class="card"><i class="fa fa-quote-left u-color"></i>
-                <p class="review-details">{{datos.content}}</p>
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="user-about"> <span class="font-weight-bold d-block author-name">{{datos.author}}</span> <span class="u-color">{{datos.author_details.name+" |" || ""}} {{datos.created_at | date:'dd/MM/YYYY'}}</span>
-                        <div class="d-flex flex-row mt-1">
-                            <div *ngFor="let x of counter(datos.author_details.rating+1) | slice:1; let i = index;"> 
-                                {{x}} <i class="fa fa-star star-color"></i> 
+<div class="row " style="background-color: dimgray;;">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <br>
+        <h2 class="" style="color: #ffc107;">Reseñas</h2>
+        <div class="container-m">
+            <div class="row">
+                <div class="col-md-12" *ngFor="let datos of data">
+                    <div class="card text-white bg-dark mb-3">
+                        <div class="comment mt-4 text-justify float-left" style="color: white;">
+                            <img [src]="'https://image.tmdb.org/t/p/w500' + datos.author_details.avatar_path" onError="this.src='https://www.seekpng.com/png/detail/428-4287240_no-avatar-user-circle-icon-png.png'" class="rounded-circle" width="70">
+                            <h4>{{datos.author}}  <span class="" style="color: #ffc107; font-size: 15px;">{{datos.created_at | date:'dd/MM/YYYY'}}</span></h4>
+
+                            <p class="review-details">{{datos.content}}</p>
+                            <div class="d-flex flex-row mt-1">
+                                <div *ngFor="let x of counter(datos.author_details.rating+1) | slice:1; let i = index;">
+                                    {{x}} <i class="fa fa-star star-color"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="user-image"> <img [src]="datos.author_details.avatar_path" onError="this.src='https://www.seekpng.com/png/detail/428-4287240_no-avatar-user-circle-icon-png.png'" class="rounded-circle" width="70"> </div>
+
+                    <!-- <div class="card"><i class="fa fa-quote-left u-color"></i>
+                        <p class="review-details">{{datos.content}}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="user-about"> <span class="font-weight-bold d-block author-name">{{datos.author}}</span> <span class="u-color">{{datos.author_details.name+" |" || ""}} {{datos.created_at | date:'dd/MM/YYYY'}}</span>
+                                <div class="d-flex flex-row mt-1">
+                                    <div *ngFor="let x of counter(datos.author_details.rating+1) | slice:1; let i = index;">
+                                        {{x}} <i class="fa fa-star star-color"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-image"> <img [src]="datos.author_details.avatar_path" onError="this.src='https://www.seekpng.com/png/detail/428-4287240_no-avatar-user-circle-icon-png.png'" class="rounded-circle" width="70"> </div>
+                        </div>
+                    </div> -->
                 </div>
             </div>
         </div>
     </div>
+    <div class="col-md-2"></div>
+
 </div>

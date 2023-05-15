@@ -1,18 +1,53 @@
+<style>
+  .div-info {
+        word-break: break-word;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -moz-box-orient: vertical;
+        -ms-box-orient: vertical;
+        box-orient: vertical;
+        -webkit-line-clamp:6;
+        -moz-line-clamp:6;
+        -ms-line-clamp:6;
+        line-clamp:6;
+        overflow: hidden;
 
-  <div>
-    <h2>Genero de Peliculas</h2>
-    <div class="row">
+        display: -webkit-box; /* Establece el elemento como una caja flexible */
+  -webkit-box-orient: vertical; /* Establece la dirección de la caja como vertical */
+  -webkit-line-clamp: 4; /* Establece el número máximo de líneas que se mostrarán */
+  overflow: hidden; /* Oculta el contenido que excede las líneas */
+  text-overflow: ellipsis;
+
+    }
+</style>
+<div class="row " style="background-color: dimgray;;">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <div>
+      <h2 class="" style="color: #ffc107;">Peliculas de {{titlePelicula}}</h2>
+      <div class="row">
         <div class="col-md-3" *ngFor="let item of data">
-            <div class="card">
+          <div class="card text-white bg-dark mb-3 " style="margin-left: 20px; margin-right: 20px;" >
 
-                <img [src]="'https://image.tmdb.org/t/p/w500' + item.poster_path" class="card-img-top w-50" alt="Nombre de la película">
-                <div class="card-body">
-                  <h5 class="card-title">{{item.title}}</h5>
-                  <p class="card-text">{{item.overview}}</p>
-                  <button (click)="verResenia(item.id)" class="btn btn-sm btn-primary">Ver Reseñas</button>
-                </div>
+            <img [src]="'https://image.tmdb.org/t/p/w500' + item.poster_path" class="card-img-top h-100"
+              alt="Nombre de la película">
+            <div class="card-body">
+              <h5 class="card-title">
+                {{item.title}}
+              </h5>
+              <p class="card-text div-info">
+                  {{item.overview}}
+              </p>
+              <div class="text-center">
+                <button (click)="verResenia(item.id)" class="btn btn-sm btn-warning">Ver Reseñas</button>
+              </div>
+
             </div>
-              
+          </div>
+
         </div>
+      </div>
     </div>
+  </div>
+  <div class="col-md-1"></div>
 </div>

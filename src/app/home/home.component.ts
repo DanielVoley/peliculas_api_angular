@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   template: `
-    <button (click)="redirectToOtherComponent(myVariable)">Redireccionar</button>
+    <button (click)="redirectToOtherComponent(myVariable,nameVariable)">Redireccionar</button>
   `
 })
 export class HomeComponent implements OnInit {
@@ -26,8 +26,8 @@ export class HomeComponent implements OnInit {
       console.log(this.data);
     })
   }
-  redirectToOtherComponent(paramValue: number) {
-    this.router.navigate(['/show_genero/', paramValue]);
+  redirectToOtherComponent(paramValue: number, nameVariable: string) {
+    this.router.navigate(['/show_genero/', paramValue,nameVariable]);
   }
 
 }
