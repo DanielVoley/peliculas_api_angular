@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../service/api.service';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class ShowGeneroComponent  implements OnInit {
   public componentToDisplay: any;
   data: any[] = [];
 
-  constructor(private apiService: ApiService, private route: ActivatedRoute){
+  constructor(private apiService: ApiService, private route: ActivatedRoute, private router: Router){
 
   }
 
@@ -55,6 +56,10 @@ export class ShowGeneroComponent  implements OnInit {
       });
       console.log(this.data);
     })
+  }
+
+  verResenia(idPelicula: number){
+    this.router.navigate(['/show_resenia/', idPelicula]);
   }
 
 }

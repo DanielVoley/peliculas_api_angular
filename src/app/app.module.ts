@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ShowGeneroComponent } from './show-genero/show-genero.component';
+import { ReseniasComponent } from './resenias/resenias.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ShowGeneroComponent
+    ShowGeneroComponent,
+    ReseniasComponent
   ],
   imports: [
     BrowserModule,
