@@ -1,0 +1,28 @@
+<div>
+    <h2>Genero de Peliculas</h2>
+    <div class="row">
+        <div class="col-md-3" *ngFor="let item of data">
+            <div class="card m-1">
+             
+
+              <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="https://png.pngtree.com/element_our/20190603/ourlarge/pngtree-movie-board-icon-image_1455346.jpg" class="img-fluid rounded-start" alt="Imagen no encontrada" style="height: 100%;" >
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body" style="text-align: center;">
+                      <h5 class="card-title">Peliculas de</h5>
+                      <h3 class="card-title text-right">{{item.name}}</h3>
+                      <p class="card-text" style="text-align: right;">
+                        <button (click)="redirectToOtherComponent(item.id)" class="btn btn-sm btn-primary">Ver Peliculas</button>
+
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+        </div>
+    </div>
+</div>
