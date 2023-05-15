@@ -12,12 +12,13 @@ import { Router } from '@angular/router';
   <h1>Componente:</h1>
   <ng-container *ngIf="componentToDisplay; else loading">{{ componentToDisplay }}</ng-container>
   <ng-template #loading>Cargando...</ng-template>
-`
+`,
 })
 export class ShowGeneroComponent  implements OnInit {
   public componentName: number = 0;
   public componentToDisplay: any;
   data: any[] = [];
+  titlePelicula : string = '';
 
   constructor(private apiService: ApiService, private route: ActivatedRoute, private router: Router){
 
@@ -26,12 +27,10 @@ export class ShowGeneroComponent  implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.componentName = params['paramName'];
+      this.titlePelicula = params['nameVariable'];
 
       this.llenarData(this.componentName);
-      console.log('PARAMETRO - DE RUTA - 123123');
-      console.log(this.componentName);
-      console.log(this.componentName);
-      console.log(this.componentName);
+
 
       // switch (this.componentName) {
       //   case 1:
